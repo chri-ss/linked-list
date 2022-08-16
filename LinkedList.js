@@ -24,7 +24,18 @@ const LinkedList = (value) => {
     //set head equal to the new node instead of the original head
     head = newNode;
   };
-  return { getList, append, prepend };
+
+  const size = () => {
+    //walk through the list and increment counter for each node visited
+    let counter = 1;
+    let curr = head;
+    while (curr.next != null) {
+      curr = curr.next;
+      counter++;
+    }
+    return counter;
+  };
+  return { getList, append, prepend, size };
 };
 
 //test
@@ -33,9 +44,11 @@ const newList = LinkedList(1);
 console.log(newList.getList());
 
 newList.append(5);
+newList.append(4);
+newList.append(3);
+newList.append(2);
+newList.append(1);
+
 console.log(newList.getList());
 
-newList.prepend(7);
-console.log(newList.getList());
-newList.prepend(3);
-console.log(newList.getList());
+console.log(newList.size());
