@@ -1,12 +1,18 @@
 const Node = (value = null, next = null) => {
   return { value, next };
 };
-
-const getHead = (value) => {
+const LinkedList = (value) => {
   head = Node(value);
-
-  const getList = () => {
+  const getHead = (value) => {
     return head;
+  };
+
+  const getTail = () => {
+    let temp = head;
+    while (temp.next != null) {
+      temp = temp.next;
+    }
+    return temp;
   };
 
   const append = (value) => {
@@ -35,7 +41,7 @@ const getHead = (value) => {
     }
     return counter;
   };
-  return { getList, append, prepend, size, getHead };
+  return { getHead, getTail, append, prepend, size };
 };
 
 //test
@@ -47,10 +53,11 @@ newList.append(5);
 newList.append(4);
 newList.append(3);
 newList.append(2);
-newList.append(1);
+newList.append(17);
 
 console.log(newList.getHead());
 
 console.log(newList.size());
 
 console.log(newList.getHead());
+console.log(newList.getTail());
