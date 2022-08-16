@@ -2,7 +2,7 @@ const Node = (value = null, next = null) => {
   return { value, next };
 };
 
-const LinkedList = (value) => {
+const getHead = (value) => {
   head = Node(value);
 
   const getList = () => {
@@ -35,13 +35,13 @@ const LinkedList = (value) => {
     }
     return counter;
   };
-  return { getList, append, prepend, size };
+  return { getList, append, prepend, size, getHead };
 };
 
 //test
 
 const newList = LinkedList(1);
-console.log(newList.getList());
+console.log(newList.getHead());
 
 newList.append(5);
 newList.append(4);
@@ -49,6 +49,8 @@ newList.append(3);
 newList.append(2);
 newList.append(1);
 
-console.log(newList.getList());
+console.log(newList.getHead());
 
 console.log(newList.size());
+
+console.log(newList.getHead());
