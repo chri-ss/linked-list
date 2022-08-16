@@ -16,14 +16,26 @@ const LinkedList = (value) => {
     }
     temp.next = Node(value);
   };
-  return { getList, append };
+
+  const prepend = (value) => {
+    //create a new node, set it's next equal to the head of the list
+    const newNode = Node(value);
+    newNode.next = head;
+    //set head equal to the new node instead of the original head
+    head = newNode;
+  };
+  return { getList, append, prepend };
 };
 
-const newList = LinkedList(1);
+//test
 
+const newList = LinkedList(1);
 console.log(newList.getList());
 
 newList.append(5);
-newList.append(7);
+console.log(newList.getList());
 
+newList.prepend(7);
+console.log(newList.getList());
+newList.prepend(3);
 console.log(newList.getList());
