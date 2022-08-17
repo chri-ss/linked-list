@@ -41,13 +41,25 @@ const LinkedList = (value) => {
     }
     return counter;
   };
-  return { getHead, getTail, append, prepend, size };
+
+  const at = (index) => {
+    let counter = 0;
+    let curr = head;
+    while (curr.next != null) {
+      curr = curr.next;
+      counter++;
+      if (counter === index) {
+        return curr;
+      }
+    }
+  };
+  return { getHead, getTail, append, prepend, size, at };
 };
 
 //test
 
 const newList = LinkedList(1);
-console.log(newList.getHead());
+// console.log(newList.getHead());
 
 newList.append(5);
 newList.append(4);
@@ -55,9 +67,8 @@ newList.append(3);
 newList.append(2);
 newList.append(17);
 
-console.log(newList.getHead());
-
-console.log(newList.size());
-
-console.log(newList.getHead());
-console.log(newList.getTail());
+// console.log(newList.getHead());
+// console.log(newList.size());
+// console.log(newList.getHead());
+// console.log(newList.getTail());
+console.log(newList.at(2));
