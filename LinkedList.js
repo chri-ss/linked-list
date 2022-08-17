@@ -72,7 +72,20 @@ const LinkedList = (value) => {
     }
     return false;
   };
-  return { getHead, getTail, append, prepend, size, at, pop, contains };
+
+  const find = (value) => {
+    let curr = head;
+    let counter = 0;
+    while (curr.next != null) {
+      curr = curr.next;
+      counter++;
+      if (curr.value === value) {
+        return counter;
+      }
+    }
+    return false;
+  };
+  return { getHead, getTail, append, prepend, size, at, pop, contains, find };
 };
 
 //test
@@ -91,8 +104,11 @@ newList.append(17);
 // console.log(newList.getHead());
 // console.log(newList.getTail());
 // console.log(newList.at(2));
-newList.pop();
-console.dir(newList.getHead(), { depth: null, colors: true });
+// newList.pop();
+// console.dir(newList.getHead(), { depth: null, colors: true });
 
-console.log(newList.contains(2));
-console.log(newList.contains(15));
+// console.log(newList.contains(2));
+// console.log(newList.contains(15));
+
+console.log(newList.find(4));
+console.log(newList.find(8));
