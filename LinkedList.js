@@ -53,7 +53,15 @@ const LinkedList = (value) => {
       }
     }
   };
-  return { getHead, getTail, append, prepend, size, at };
+
+  const pop = () => {
+    let curr = head;
+    while (curr.next.next != null) {
+      curr = curr.next;
+    }
+    curr.next = null;
+  };
+  return { getHead, getTail, append, prepend, size, at, pop };
 };
 
 //test
@@ -71,4 +79,6 @@ newList.append(17);
 // console.log(newList.size());
 // console.log(newList.getHead());
 // console.log(newList.getTail());
-console.log(newList.at(2));
+// console.log(newList.at(2));
+newList.pop();
+console.dir(newList.getHead(), { depth: null, colors: true });
