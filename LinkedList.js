@@ -61,7 +61,18 @@ const LinkedList = (value) => {
     }
     curr.next = null;
   };
-  return { getHead, getTail, append, prepend, size, at, pop };
+
+  const contains = (value) => {
+    let curr = head;
+    while (curr.next != null) {
+      curr = curr.next;
+      if (curr.value === value) {
+        return true;
+      }
+    }
+    return false;
+  };
+  return { getHead, getTail, append, prepend, size, at, pop, contains };
 };
 
 //test
@@ -82,3 +93,6 @@ newList.append(17);
 // console.log(newList.at(2));
 newList.pop();
 console.dir(newList.getHead(), { depth: null, colors: true });
+
+console.log(newList.contains(2));
+console.log(newList.contains(15));
