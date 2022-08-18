@@ -96,6 +96,17 @@ const LinkedList = (value) => {
     str += "null";
     return str;
   };
+
+  const insertAt = (value, index) => {
+    // create the new node
+    const newNode = Node(value);
+
+    //set the pointer of the new node to the point to the node that currently occupies the index [value]
+    const curr = at(index);
+    const prev = at(index - 1);
+    newNode.next = curr;
+    prev.next = newNode;
+  };
   return {
     getHead,
     getTail,
@@ -107,6 +118,7 @@ const LinkedList = (value) => {
     contains,
     find,
     toString,
+    insertAt,
   };
 };
 
@@ -135,4 +147,6 @@ newList.append(17);
 // console.log(newList.find(4));
 // console.log(newList.find(8));
 
+console.log(newList.toString());
+newList.insertAt("h", 3);
 console.log(newList.toString());
