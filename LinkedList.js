@@ -85,7 +85,29 @@ const LinkedList = (value) => {
     }
     return false;
   };
-  return { getHead, getTail, append, prepend, size, at, pop, contains, find };
+
+  const toString = () => {
+    let curr = head;
+    let str = "";
+    while (curr != null) {
+      str += `( ${curr.value} ) -> `;
+      curr = curr.next;
+    }
+    str += "null";
+    return str;
+  };
+  return {
+    getHead,
+    getTail,
+    append,
+    prepend,
+    size,
+    at,
+    pop,
+    contains,
+    find,
+    toString,
+  };
 };
 
 //test
@@ -110,5 +132,7 @@ newList.append(17);
 // console.log(newList.contains(2));
 // console.log(newList.contains(15));
 
-console.log(newList.find(4));
-console.log(newList.find(8));
+// console.log(newList.find(4));
+// console.log(newList.find(8));
+
+console.log(newList.toString());
