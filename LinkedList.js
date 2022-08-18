@@ -111,6 +111,17 @@ const LinkedList = (value) => {
       return false;
     }
   };
+
+  const removeAt = (index) => {
+    if (index <= size()) {
+      let curr = at(index);
+      let prev = at(index - 1);
+      prev.next = curr.next;
+      curr = null;
+    } else {
+      return false;
+    }
+  };
   return {
     getHead,
     getTail,
@@ -123,6 +134,7 @@ const LinkedList = (value) => {
     find,
     toString,
     insertAt,
+    removeAt,
   };
 };
 
@@ -157,4 +169,11 @@ console.log(newList.toString());
 
 //doesn't add because index doesn't exist
 newList.insertAt("h", 7);
+console.log(newList.toString());
+
+newList.removeAt(2);
+console.log(newList.toString());
+
+//doesn't remove because index doesn't exist
+newList.removeAt(8);
 console.log(newList.toString());
