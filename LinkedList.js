@@ -102,10 +102,14 @@ const LinkedList = (value) => {
     const newNode = Node(value);
 
     //set the pointer of the new node to the point to the node that currently occupies the index [value]
-    const curr = at(index);
-    const prev = at(index - 1);
-    newNode.next = curr;
-    prev.next = newNode;
+    if (index <= size()) {
+      const curr = at(index);
+      const prev = at(index - 1);
+      newNode.next = curr;
+      prev.next = newNode;
+    } else {
+      return false;
+    }
   };
   return {
     getHead,
@@ -134,7 +138,7 @@ newList.append(2);
 newList.append(17);
 
 // console.log(newList.getHead());
-// console.log(newList.size());
+console.log(newList.size());
 // console.log(newList.getHead());
 // console.log(newList.getTail());
 // console.log(newList.at(2));
@@ -149,4 +153,8 @@ newList.append(17);
 
 console.log(newList.toString());
 newList.insertAt("h", 3);
+console.log(newList.toString());
+
+//doesn't add because index doesn't exist
+newList.insertAt("h", 7);
 console.log(newList.toString());
