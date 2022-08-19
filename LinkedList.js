@@ -141,27 +141,27 @@ const LinkedList = (value) => {
 //test
 
 const newList = LinkedList(1);
-// console.log(newList.getHead());
 
 newList.append(5);
 newList.append(4);
 newList.append(3);
 newList.append(2);
-newList.append(17);
 
-// console.log(newList.getHead());
+newList.prepend(17);
+
+console.log(newList.getHead());
+console.log(newList.getTail());
 console.log(newList.size());
-// console.log(newList.getHead());
-// console.log(newList.getTail());
-// console.log(newList.at(2));
-// newList.pop();
-// console.dir(newList.getHead(), { depth: null, colors: true });
+console.log(newList.at(2));
 
-// console.log(newList.contains(2));
-// console.log(newList.contains(15));
+newList.pop();
+console.dir(newList.getHead(), { depth: null, colors: true });
 
-// console.log(newList.find(4));
-// console.log(newList.find(8));
+console.log(newList.contains(4));
+console.log(newList.contains(15));
+
+console.log(newList.find(4));
+console.log(newList.find(8));
 
 console.log(newList.toString());
 newList.insertAt("h", 3);
